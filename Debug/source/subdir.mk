@@ -9,6 +9,7 @@ C_SRCS += \
 ../source/gpio.c \
 ../source/mtb.c \
 ../source/port.c \
+../source/printf.c \
 ../source/semihost_hardfault.c \
 ../source/uart.c 
 
@@ -18,6 +19,7 @@ C_DEPS += \
 ./source/gpio.d \
 ./source/mtb.d \
 ./source/port.d \
+./source/printf.d \
 ./source/semihost_hardfault.d \
 ./source/uart.d 
 
@@ -27,6 +29,7 @@ OBJS += \
 ./source/gpio.o \
 ./source/mtb.o \
 ./source/port.o \
+./source/printf.o \
 ./source/semihost_hardfault.o \
 ./source/uart.o 
 
@@ -43,7 +46,7 @@ source/%.o: ../source/%.c source/subdir.mk
 clean: clean-source
 
 clean-source:
-	-$(RM) ./source/App_at_sector_50.d ./source/App_at_sector_50.o ./source/adc.d ./source/adc.o ./source/gpio.d ./source/gpio.o ./source/mtb.d ./source/mtb.o ./source/port.d ./source/port.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/uart.d ./source/uart.o
+	-$(RM) ./source/App_at_sector_50.d ./source/App_at_sector_50.o ./source/adc.d ./source/adc.o ./source/gpio.d ./source/gpio.o ./source/mtb.d ./source/mtb.o ./source/port.d ./source/port.o ./source/printf.d ./source/printf.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/uart.d ./source/uart.o
 
 .PHONY: clean-source
 

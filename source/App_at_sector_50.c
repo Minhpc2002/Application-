@@ -7,7 +7,7 @@
 #include "gpio.h"
 #include "uart.h"
 #include "adc.h"
-#include <stdio.h>
+#include "printf.h"
 
 
 #define TIMER_RElOAD_VALUE  (999999u)	// 1 milisecond period
@@ -18,7 +18,7 @@
 #define LED_PORT		(PORTD)
 #define LED_GPIO		(GPIOD)
 
-uint8_t cmd_key = 0x55 ;
+const uint8_t cmd_key = 0x55 ;
 const float TempSensorSlope = 1.62 ;
 const float TempSensorVolt25 = 716 ;
 float Temp_History[MAX_LEN_HISTORY] ;
@@ -29,13 +29,12 @@ void systick_init() ;
 
 
 
-
 void main()
 {
 	char buffer[50] ;
-	system_init() ;
 
-	sprintf(buffer, "\nSend 0x%x to get data\n", cmd_key) ;
+	system_init() ;
+	sprintf(buffer,  "\nSend '%c' to get data\n", cmd_key) ;
 	uart_sendString(buffer) ;
 
 	while(1)
